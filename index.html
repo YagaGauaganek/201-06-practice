@@ -12,16 +12,44 @@
     </header>
     <main>
         <h2>Kittens available for adoption</h2>
-        <div id="kittenProfiles"></div>
-        <table>
+        <form id="addKittenForm">
+            <fieldset>
+                <legend>Basic Information</legend>
+
+                <label for ="nameInput">Name</label>
+                <input type="text" id="nameInput" name="name"/>
+
+                <label for="interestsInput">Interests</label>
+                <input type="text" id="interestsInput" name="interests" />
+                <span>List interests, separated by commas</span>
+            </fieldset>
+            <fieldset>
+                <legend>Placement Information</legend>
+                <p>Can be placed with...</p>
+
+                <label>
+                    <input class="inline-input" type="checkbox" name="isGoodWithKids" />Kids</label>
+
+                <label>
+                    <input class="inline-input" type="checkbox" name="isGoodWithDogs" />Dogs</label>  
+                
+                <label>
+                    <input class="inline-input" type="checkbox" name="isGoodWithCats" />Cats</label>  
+            </fieldset>
+            <button type="submit">SUBMIT</button>
+        </form>
+        <div id="kittenProfiles"></div> 
+        <!-- <table>
             <tr>
                 <th>Kids</th>
                 <th>Dogs</th>
                 <th>Cats</th>
             </tr>
-        </table>
+        </table> -->
     </main>
-    <footer></footer>
+    <footer>
+        <button id="click">Click Me</button>
+    </footer>
     <script scr="app.js"></script>    
 </body>
 </html>

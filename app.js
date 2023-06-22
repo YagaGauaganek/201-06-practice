@@ -2,6 +2,12 @@
 
 console.log("you are one cool kitten");
 
+//Adding event to js
+//document.getElementById("click").addEventListener("",function () {
+//    console.log("hey, stop clicking me");
+//});
+
+
 const cat = {
     name: "Bob",
     age: 0, 
@@ -87,6 +93,11 @@ isGoodWithCats = true;
 // console.log(bob);
 
 //How to use it unifying for new kitten
+//Adding form via java script events
+
+const kittenForm = document.getElementById("addKittenForm");
+
+const allKittens = [];
 
 function Kitten(name, interests,  isGoodWithKids, isGoodWithDogs){
     this.name = name;
@@ -97,6 +108,12 @@ function Kitten(name, interests,  isGoodWithKids, isGoodWithDogs){
     isGoodWithCats = isGoodWithCats;
     this.images = "images/" + imgFileName;
     this.age = this.generateAge();
+    this.pushKitty = function () {
+        allKittens.push(this);
+        console.log(allKittens);
+    };
+    this.pushKitty();
+    //this.render();
 }
 
 // const eric = new Kitten();
@@ -197,3 +214,35 @@ console.log(val);
 //anna.render();
 //val.render();
 //instead of rendering in d#the bottom we can add this.render to our constuctor function
+
+//js event
+
+kittenForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    //console.log(event);
+    const name  = event.target.name.value;
+    let interests = event.target.interests.value;
+    interests = interests.split(",")
+
+    const  isGoodWithKids = event.target.isGoodWithKids.checked
+    const  isGoodWithDogs = event.target.isGoodWithDogs.checked
+    const  isGoodWithCats = event.target.isGoodWithCats.checked
+    const imageUrl = "roger.jpg"
+
+    const newKitten = new Kitten (name, interests, isGoodWithKids, isGoodWithDogs, isGoodWithCats, imageUrl);
+    console.log(newKitten);
+    console.log(allKittens);
+
+    renderAllKittens();
+    kittenForm.reset();
+
+});
+
+function renderAllKittens(){
+    for (let i =0; i < renderAllKittens.length; i++){
+
+    allKittens[i].render();
+    }
+}
+
+renderAllKittens();
